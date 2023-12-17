@@ -1,0 +1,114 @@
+ [----->VARIABLES
+
+ ctrl+shift+escape=task manager
+ 1value=8bytes 
+ 1bytes=8bits (total=64 bits)
+ dynamic typed language=(10.5)->variable to string
+ const pi=3.14(dont change fixed) let (changed)
+
+----->internal and external js
+---------------------------------------------------------
+----->operators
+
+->arithmetic operators
+     +,-,*,**,/,%,++,-- pre inc/dec  post inc/dec
+
+->Assignment operators
+     =,+=,-=,/=,%=,**=  a+=3//shorthand assignment
+     special value ->infinity NAN
+->comparison operators
+     ==,===,!=,!==,>,<,>=,<=,?
+
+->Logical operators
+     &&,||,!      shortcircuit and,or,not
+
+a  b  a&&b a||b  a  b  a^b 
+f  f    f    f   0  0   0
+f  t    f    t   0  1   1
+t  f    f    t   1  0   1
+t  t    t    t   1  1   0
+
+a !a
+t  f
+f  t
+
+->Bitwise operator
+     &,|,~,^,<<,>>,>>>
+
+->function,on click,document.getelementbyid,to fixed
+--------------------------------------------------------
+----->math function
+
+   ->math.round,floor,ceil,sqrt(),abs(-t0+),pow,min,max,random(0-1 point value random displayed)
+   ->const const.PI,e link (java3 math function)
+--------------------------------------------------------
+----->String 
+ ->str1+str2
+ ->str1.concat(str2)//invoking a method
+ ->str1.slice(start,end)// start character to end character
+ ->str1.substring(start,end)
+ .->str1.substr(satrt,length)//length=character
+ ->str1.replace(change',"changes") replaceall()
+ ->str1.toUpperCase()
+ ->str1.toLowerCase()
+ ->str1.length
+  ->str1.trim() //extra space will be removed
+ ->str1.trimStart() //first space will be removed
+ ->str1.trimEnd() //end space will be removed
+ ->.padEnd
+ ->str1[1]
+ ->str1.charAt(1)
+ ->str1.charCodeAt(1)
+ ->str1.indexOf('e')
+ ->str1.lastindexOf('e')
+ ->str1.firstindexOf('e')
+ ->str1.search('e')
+ ->str1.includes('not')
+ ->str1.startswith('s')
+ 
+-----------------------------------------------------
+ ------>template literals-> `"content" 'content'`
+------>Arrays method
+   array.push,,pop,delete,shift,unshift,splice(start index,delete start index,value inserted start), 
+   array.reverse()
+   array.join() (convert array to string)
+   array.split() (convert string to array)
+   joined array
+   spread array[...first,...secon]another option 
+------------------------------------------------------
+  ->Else if
+  ->Palindrome or not==============project((/[^a-z]/g, "")
+  ->switch =event listener
+  ->object
+  ->for,while,do while,break,continue loop
+  ->functions
+    ->function declaration
+    ->hoisting function-
+    ->default parameters
+    ->recursion function-(factorial)
+    ->function expression
+    ->Arrow function 
+    ->variable argument functi on-rest parameters  gener***
+
+--------------------------------------------------------
+  ->call back and for each
+  ->map , filter , reduce
+  ->returning functions and closure
+  ->memory allocation stack and heap storage
+  ->Set(cannot display repeat values)-- and Map =>(has,delete,clear,get,set,forEach)
+  ->object oriented programming
+  ->Asynchronous (setTimeout,setInterval,Event Loop) (stack-Last In First Out)
+  ->promise (Promise.all,Promise.allSetled)Promisestatus(sending,resolved,rejected(settled)
+  ->Error handling (try,catch,throw,finally)
+  ->Async Await
+  ->Json-Java Script Object Notation(JSON.parse,JSON.stringify)
+  ->Fetch Api(Application Programming Interface)
+  ->To Do list 
+
+  Create a new Array->map,filter,slice,flat,flatmap
+  window.onload ->page refresh  
+  method chaining=user.login().message()->ucing (return this)option will be executed
+  class is created in Es6
+  prototype=name.prototype.login=function(){...}
+  
+

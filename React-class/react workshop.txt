@@ -1,0 +1,29 @@
+TITLES:
+-----------------------------------------------------------------------------
+1. React Basics: Building Your First App
+2. From Zero to Hero: Learn React in a Week	
+3. Unlock the Power of React: A Beginner's Workshop
+4. The Future of Front-End Development: Building with React
+-----------------------------------------------------------------------------
+
+DAY 1:
+	React Introduction 
+	javaScript Basics - I
+
+DAY 2:
+	javaScript Basics - II
+
+DAY 3:	
+	react fundamentals - I - jsx,styling
+
+DAY 4:
+	react fundamentals - II - Components & Props
+
+DAY 5:
+	react hooks - useState, Event Handling	
+
+DAY 6:
+	react hooks - useEffect,useContext
+
+DAY 7:
+ 	 react router
