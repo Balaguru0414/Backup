@@ -436,8 +436,310 @@ function Login() {
 
 export default Login;
 
-
 // --------------------------------------------------------  React props
+app.js
+===========
+import React from "react";
+import Form from "./Form";
+
+var userIsRegistered = false;
+
+function App() {
+  return (
+    <div className="container">
+      <Form isRegistered={userIsRegistered} />
+    </div>
+  );
+}
+
+export default App;
+
+form.js
+============
+import React from "react";
+
+function Form(props) {
+  return (
+    <form className="form">
+      <input type="text" placeholder="Username" />
+      <input type="password" placeholder="Password" />
+      {!props.isRegistered && (
+        <input type="password" placeholder="Confirm Password" />
+      )}
+
+      <button type="submit">{props.isRegistered ? "Login" : "Register"}</button>
+    </form>
+  );
+}
+
+export default Form;
+
+// -------------------------------------------- State in React - Declarative vs. Imperative Programming
+import React from "react";
+
+var count = 0;
+
+function increment() {
+  count = count + 1;
+}
+
+function decrement() {
+  count = count - 1;
+}
+
+function App() {
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+// -------------------------------------------- React Hooks - useState
+
+import React, { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  function increase() {
+    setCount(count + 1);
+  }
+
+  function decrease() {
+    setCount(count - 1);
+  }
+
+  return (
+    <div className="container">
+      <h1>{count}</h1>
+      <button onClick={decrease}>-</button>
+      <button onClick={increase}>+</button>
+    </div>
+  );
+}
+
+export default App;
+
+// ------------------------------------ useState Hook Practice
+
+import React, { useState } from "react";
+
+function App() {
+  setInterval(updateTime, 1000);
+
+  const now = new Date().toLocaleTimeString();
+
+  const [time, setTime] = useState(now);
+
+  function updateTime() {
+    const newTime = new Date().toLocaleTimeString();
+    setTime(newTime);
+  }
+
+  return (
+    <div className="container">
+      <h1>{time}</h1>
+      <button onClick={updateTime}>Get Time</button>
+    </div>
+  );
+}
+
+export default App;
+
+// --------------------------------------- Event Handling in React
+
+import React, { useState } from "react";
+
+function App() {
+  const [headingText, setHeadingText] = useState("Hello");
+  const [isMousedOver, setMouseOver] = useState(false);
+
+  function handleClick() {
+    setHeadingText("Submitted");
+  }
+
+  function handleMouseOver() {
+    setMouseOver(true);
+  }
+
+  function handleMouseOut() {
+    setMouseOver(false);
+  }
+
+  return (
+    <div className="container">
+      <h1>{headingText}</h1>
+      <input type="text" placeholder="What's your name?" />
+      <button
+        style={{ backgroundColor: isMousedOver ? "black" : "white" }}
+        onClick={handleClick}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
+        Submit
+      </button>
+    </div>
+  );
+}
+
+export default App;
+
+// ----------------------------------------------------- React forms end
+import React, { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+  const [headingText, setHeading] = useState("");
+
+  function handleChange(event) {
+    console.log(event.target.value);
+    setName(event.target.value);
+  }
+
+  function handleClick(event) {
+    setHeading(name);
+
+    event.preventDefault();
+  }
+
+  return (
+    <div className="container">
+      <h1>Hello {headingText}</h1>
+      <form onSubmit={handleClick}>
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder="What's your name?"
+          value={name}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+}
+
+export default App;
+
+// ----------------------------------------- Class Component
+app.js
+========
+import React from "react";
+import ClassComponent from "./ClassComponent";
+import FunctionalComponent from "./FunctionalComponent";
+
+class App extends React.Component {
+  render() {
+    return <ClassComponent />;
+  }
+}
+
+export default App;
+
+classComponent.js
+====================
+  import React from "react";
+
+class ClassComponent extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      count: 0
+    };
+    this.increase = this.increase.bind(this);
+  }
+
+  increase() {
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.count}</h1>
+        <button onClick={this.increase}>+</button>
+      </div>
+    );
+  }
+}
+
+export default ClassComponent;
+
+// ------------------------------------------------------ React Complex State
+
+import React, { useState } from "react";
+
+function App() {
+  const [contact, setContact] = useState({
+    fName: "",
+    lName: "",
+    email: ""
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    setContact(prevValue => {
+      if (name === "fName") {
+        return {
+          fName: value,
+          lName: prevValue.lName,
+          email: prevValue.email
+        };
+      } else if (name === "lName") {
+        return {
+          fName: prevValue.fName,
+          lName: value,
+          email: prevValue.email
+        };
+      } else if (name === "email") {
+        return {
+          fName: prevValue.fName,
+          lName: prevValue.lName,
+          email: value
+        };
+      }
+    });
+  }
+
+  return (
+    <div className="container">
+      <h1>
+        Hello {contact.fName} {contact.lName}
+      </h1>
+      <p>{contact.email}</p>
+      <form>
+        <input
+          onChange={handleChange}
+          value={contact.fName}
+          name="fName"
+          placeholder="First Name"
+        />
+        <input
+          onChange={handleChange}
+          value={contact.lName}
+          name="lName"
+          placeholder="Last Name"
+        />
+        <input
+          onChange={handleChange}
+          value={contact.email}
+          name="email"
+          placeholder="Email"
+        />
+        <button>Submit</button>
+      </form>
+    </div>
+  );
+}
+
+export default App;
+
 
 
 
