@@ -436,7 +436,7 @@ function Login() {
 
 export default Login;
 
-// --------------------------------------------------------  React props
+// --------------------------------------------------------  React Conditional Rendering with the Ternary Operator & AND Operator
 app.js
 ===========
 import React from "react";
